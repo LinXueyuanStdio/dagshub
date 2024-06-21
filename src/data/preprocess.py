@@ -9,7 +9,7 @@ from pathlib import Path
 def featurization(data_path):
     # Load data-sets
     print("Loading data sets...")
-    train_data = pd.read_csv(data_path, header=None, dtype=float)
+    train_data = pd.read_csv(data_path)
     print("done.")
 
     # Normalize the train data
@@ -19,15 +19,17 @@ def featurization(data_path):
 
     print("done.")
 
-    print("Saving processed datasets and normalization parameters...")
     # Save normalized data-sets
     # Save mean and std for future inference
     output_path = Path(data_path).with_suffix('.json')
     with open(output_path, 'w') as f:
-        json.dump(train_data.to_records(), f)
+        rows = []
+        for index, row in train_data.iterrows():
+            rows.append(dict(row))
+        json.dump(rows, f)
 
     print("done.")
 
 
 if __name__ == '__main__':
-    featurization()
+    featurization("data/word_translation.csv")

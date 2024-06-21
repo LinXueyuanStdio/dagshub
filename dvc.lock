@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  featurization:
+    cmd: python src/data/preprocess.py
+    deps:
+    - path: data/word_translation.csv
+      hash: md5
+      md5: 40687331a4e0f269af9e0bc55a41ea8c
+      size: 7771638
+    - path: src/data/preprocess.py
+      hash: md5
+      md5: 8434d1ac54f9cc6ee6557390f313a13b
+      size: 951
+    outs:
+    - path: data/word_translation.json
+      hash: md5
+      md5: 7b76c2154a71bc97ceee0752d1fa3f2d
+      size: 17767455
