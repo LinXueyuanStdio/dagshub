@@ -5,3 +5,11 @@ metrics:
 plots:
 - dvclive/plots/metrics:
     x: step
+stages:
+  featurization:
+    cmd: python src/data/preprocess.py
+    deps:
+    - data/word_translation.csv
+    - src/data/preprocess.py
+    outs:
+    - data/word_translation.json
