@@ -1,0 +1,5 @@
+outs:
+- md5: 40687331a4e0f269af9e0bc55a41ea8c
+  size: 7771638
+  hash: md5
+  path: word_translation.csv
